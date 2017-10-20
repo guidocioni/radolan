@@ -29,16 +29,16 @@ datestring=rxattrs['datetime'].strftime("%Y-%m-%d %H:%M")
 # plot RX product
 # fig = pl.figure()
 
-bmap = Basemap(projection='cyl', llcrnrlon=4, llcrnrlat=47, urcrnrlon=16, urcrnrlat=55,  resolution='i')
+bmap = Basemap(projection='cyl', llcrnrlon=5, llcrnrlat=47, urcrnrlon=15, urcrnrlat=55,  resolution='h')
 
-bmap.contourf(lon_wgs0,lat_wgs0,rxdata,np.arange(-1,60,0.5),cmap='nipy_spectral',extend="both")
+bmap.contourf(lon_wgs0,lat_wgs0,rxdata,np.arange(-1,60,0.5),cmap='nipy_spectral',extend="max")
 
 # Draw the coastlines, countries, parallels and meridians
-bmap.drawcoastlines(linewidth=0.5, linestyle='solid', color='white')
-bmap.drawcountries(linewidth=0.5, linestyle='solid', color='white')
-bmap.drawparallels(np.arange(-90.0, 90.0, 1), linewidth=0.1, color='white', labels=[True, False, False, True])
-bmap.drawmeridians(np.arange(0.0, 360.0, 1), linewidth=0.1, color='white', labels=[True, False, False, True])
-bmap.readshapefile('/Users/guidocioni/shapefiles/DEU_adm_shp/DEU_adm1','DEU_adm1',linewidth=0.3,color='white')
+bmap.drawcoastlines(linewidth=0.6, linestyle='solid', color='black')
+bmap.drawcountries(linewidth=0.6, linestyle='solid', color='black')
+bmap.drawparallels(np.arange(-90.0, 90.0, 1), linewidth=0.1, color='black', labels=[True, False, False, True])
+bmap.drawmeridians(np.arange(0.0, 360.0, 1), linewidth=0.1, color='black', labels=[True, False, False, True])
+bmap.readshapefile('/Users/guidocioni/shapefiles/DEU_adm_shp/DEU_adm1','DEU_adm1',linewidth=0.3,color='black')
 
 # Insert the legend
 bmap.colorbar(location='right', label='Reflectivity [dBz]')
